@@ -11,7 +11,7 @@ import {
 	NavLink,
 	SocialIcons,
 	Span,
-} from "./HeaderStyles"; 
+} from "./HeaderStyles";
 
 const Header = () => (
 	<Container>
@@ -49,14 +49,11 @@ const Header = () => (
 			</li>
 		</Div2> */}
 		<Div3>
-			<SocialIcons href="https://github.com">
+			<SocialIcons href="https://github.com/harryalbert/">
 				<AiFillGithub size="3rem" />
 			</SocialIcons>
-			<SocialIcons href="https://linkedin.com">
+			<SocialIcons href="https://www.linkedin.com/in/harry-albert/">
 				<AiFillLinkedin size="3rem" />
-			</SocialIcons>
-			<SocialIcons href="https://instagram.com">
-				<AiFillInstagram size="3rem" />
 			</SocialIcons>
 		</Div3>
 	</Container>
