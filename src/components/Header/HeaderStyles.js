@@ -3,19 +3,21 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 10px 50px 10px 5px;
+	padding: 10px 20px 10px 5px;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
 		display: flex;
 		justify-content: space-between;
-		padding: 5px 20px 5px 5px;
+		flex-wrap: wrap;
+		padding: 5px 10px 5px 5px;
 	}
 `;
 
 export const Span = styled.span`
-  font-size: 2rem;
-`
+	font-size: 2rem;
+`;
 
 export const Div1 = styled.div`
 	grid-area: 1 / 1 / 2 / 2;

@@ -1,6 +1,5 @@
 import React from "react";
-import {DiFirebase, DiReact} from "react-icons/di";
-import {FiFigma} from "react-icons/fi";
+import {DiFirebase, DiReact, DiPython} from "react-icons/di";
 import {
 	Section,
 	SectionDivider,
@@ -18,7 +17,7 @@ import {
 const Technologies = () => (
 	<Section id="tech">
 		<SectionDivider />
-    <br />
+		<br />
 		<SectionTitle>Technologies</SectionTitle>
 		<SectionText>
 			I've worked with a range of technologies in the web developement
@@ -30,8 +29,8 @@ const Technologies = () => (
 				<ListContainer>
 					<ListTitle>Front End</ListTitle>
 					<ListParagraph>
-						Experience with <br />
-						React.js
+						Experience with: React.js, Flutter, React Native, and
+						Tkinter
 					</ListParagraph>
 				</ListContainer>
 			</ListItem>
@@ -40,18 +39,18 @@ const Technologies = () => (
 				<ListContainer>
 					<ListTitle>Back End</ListTitle>
 					<ListParagraph>
-						Experience with <br />
-						Node.js and Databases
+						Experience with: Node.js, Express.js, Firebase, MongoDB
+						Atlas, and AWS S3
 					</ListParagraph>
 				</ListContainer>
 			</ListItem>
 			<ListItem>
-				<FiFigma size="2rem" />
+				<DiPython size="3rem" />
 				<ListContainer>
-					<ListTitle>UI/UX</ListTitle>
+					<ListTitle>Languages</ListTitle>
 					<ListParagraph>
-						Experience with <br />
-						tools like Figma
+						Comfortable with: Python, Java, JavaScript, and HTML +
+						CSS
 					</ListParagraph>
 				</ListContainer>
 			</ListItem>

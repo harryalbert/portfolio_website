@@ -12,17 +12,19 @@ const Hero = () => (
 	<Section row nopadding>
 		<LeftSection>
 			<SectionTitle main center>
-				Welcom to <br />
-				My Personal Portfolio
+				Hi, I'm Harry
 			</SectionTitle>
 			<SectionText>
-				The purpose of Javascript Mastery is to help aspiring and
-				established developers to master web developement and to build
-				awesome apps
+				I'm a full stack developer with experience in both
+				self-contained and business facing products. I am experienced in
+				ground-up web app creation, file system automation, and the
+				creation of user friendly GUIs.
 			</SectionText>
 			<Button
 				onClick={() => {
-					window.location = "https://google.com";
+					window.open(
+						"https://docs.google.com/document/d/1KBKhfhXGTRS6oN-9CNNfIrmXoF71Iot0uX49G1jy394/edit?usp=sharing"
+					);
 				}}
 			>
 				Learn More
