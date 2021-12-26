@@ -38,9 +38,10 @@ export const projects = [
 ];
 
 export const TimeLineData = [
-  { year: 2017, text: 'Started my journey', },
-  { year: 2018, text: 'Worked as a freelance developer', },
-  { year: 2019, text: 'Founded JavaScript Mastery', },
-  { year: 2020, text: 'Shared my projects with the world', },
-  { year: 2021, text: 'Started my own platform', },
+  { year: 2017, text: 'Took my first programming class in python', },
+  { year: 2019, text: 'Decided to take a gap year before college because of COVID-19', },
+  { year: 2020, text: 'Began working as a software engineer at Cadence Effects', },
+  { year: 2020, text: 'Founded Devitas (a startup that I have since made the hard decision to cease work on)', },
+  { year: 2021, text: 'Began my degree at Williams College', },
+  { year: 2022, text: 'Worked as a software engineer intern at Meta', },
 ];

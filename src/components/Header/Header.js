@@ -11,7 +11,7 @@ import {
 	NavLink,
 	SocialIcons,
 	Span,
-} from "./HeaderStyles";
+} from "./HeaderStyles"; 
 
 const Header = () => (
 	<Container>
@@ -23,7 +23,7 @@ const Header = () => (
 					color: "white",
 				}}
 			>
-				<DiCssdeck size="3rem" /> <Span>My Portfolio</Span>
+				<DiCssdeck size="3rem" /> <Span>Harry Albert</Span>
 			</a>
 		</Link>
 		{/* <Div2>
