@@ -2,7 +2,7 @@ export const projects = [
 	{
 		title: "Devitas",
 		description:
-			"Devitas is a free, easy to use website builder geared toward students applying for college, jobs, internships, etc. I built Devitas completely independently over the course of my gap year, and greatly improved my full-stack developement skills through this process.",
+			"Devitas is a free, easy to use website builder geared toward students applying for college, jobs, internships, etc. I built Devitas independently over the course of my gap year, and greatly improved my full-stack developement skills through this process.",
 		image: "/images/DevitasScreenshot.png",
 		tags: ["Node", "MongoDB", "Express", "Firebase"],
 		id: 0,
