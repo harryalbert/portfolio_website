@@ -25,12 +25,12 @@ export const TimeLineData = [
 	},
 	{
 		year: 2020,
-		text: "Began working as a software engineer at Cadence Effects",
+		text: "Software engineer at Cadence Effects",
 	},
 	{
 		year: 2020,
 		text: "Founded Devitas (a startup that I have since made the hard decision to cease work on)",
 	},
 	{year: 2021, text: "Began my degree at Williams College"},
-	{year: 2022, text: "Worked as a software engineer intern at Meta"},
+	{year: 2022, text: "Software engineer intern at Meta"},
 ];

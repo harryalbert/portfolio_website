@@ -73,7 +73,7 @@ const Timeline = () => {
 			<SectionText>
 				I began learning how to code in 2017 and haven't stopped
 				learning since. For me, programming began as a hobby,
-				and I have been extremely lucky that I have been able to turn my hobby into a career.
+				and I have been working to turn that hobby into a career.
 			</SectionText>
 			<CarouselContainer ref={carouselRef} onScroll={handleScroll}>
 				<>
