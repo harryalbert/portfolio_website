@@ -21,13 +21,13 @@ export default class Sorting extends Component {
 		this.setState({grid: createGrid(20, numRows)});
 	}
 
-	reset() {
+	reset(clearWalls) {
 		unvisited.clear();
 
 		for (let i = 0; i < this.state.grid.length; i++) {
 			for (let j = 0; j < this.state.grid[0].length; j++) {
 				let node = this.state.grid[i][j];
-				node.isWall = false;
+				if (clearWalls) node.isWall = false;
 				node.isVisited = false;
 				node.inPath = false;
 				node.parent = null;
@@ -78,17 +78,29 @@ export default class Sorting extends Component {
 					<button
 						id={styles.startButton}
 						className={styles.button}
-						onClick={() => this.runDijkstras()}
+						onClick={() => {
+							this.reset(false);
+							this.runDijkstras();
+						}}
 					>
 						<h2>Start</h2>
 					</button>
-					<button
-						id={styles.clearButton}
-						className={styles.button}
-						onClick={() => this.reset()}
-					>
-						<h2>Clear</h2>
-					</button>
+					<div style={{height: '100%'}}>
+						<button
+							id={styles.clearButton}
+							className={styles.button}
+							onClick={() => this.reset(true)}
+						>
+							<h2>Clear</h2>
+						</button>
+						<button
+							id={styles.clearButton}
+							className={styles.button}
+							onClick={() => this.reset(false)}
+						>
+							<h2>Reset</h2>
+						</button>
+					</div>
 				</div>
 
 				<div className={styles.grid}>

@@ -15,6 +15,8 @@
 .button {
 	border: none;
 	border-radius: 5px;
+	margin: 5px 10px 0px 10px;
+	height: 100%;
 }
 
 .button:hover {
@@ -24,8 +26,8 @@
 
 .button > h2 {
 	margin: 0px;
-	margin-left: 4px;
-	margin-right: 4px;
+	padding-left: 4px;
+	padding-right: 4px;
 }
 
 #startButton {
