@@ -17,8 +17,9 @@ export default class Sorting extends Component {
 
 	componentDidMount() {
 		let numRows = Math.round(window.innerWidth / 25) - 1;
+		let numCols = Math.round((window.innerHeight - 50) / 25) - 1;
 
-		this.setState({grid: createGrid(20, numRows)});
+		this.setState({grid: createGrid(numCols, numRows)});
 	}
 
 	reset(clearWalls) {
