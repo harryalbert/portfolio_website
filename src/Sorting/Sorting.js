@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Head from "next/head";
 import Node from "./Node/Node";
 import {END_LOCATION, createGrid, dijkstras, unvisited} from "./SortingAlgs";
 
@@ -73,47 +74,58 @@ export default class Sorting extends Component {
 
 	render() {
 		return (
-			<div className={styles.main}>
-				<div className={styles.topBar}>
-					<h1 style={{margin: 0}}>Sorting</h1>
-					<button
-						id={styles.startButton}
-						className={styles.button}
-						onClick={() => {
-							this.reset(false);
-							this.runDijkstras();
-						}}
-					>
-						<h2>Start</h2>
-					</button>
-					<div style={{height: "100%"}}>
+			<div>
+				<Head>
+					<title>Pathfinding Visualizer</title>
+					<meta
+						name="viewport"
+						content="initial-scale=1.0, width=device-width"
+					/>
+				</Head>
+				<div className={styles.main}>
+					<div className={styles.topBar}>
+						<h1 style={{margin: 0}}>Sorting</h1>
 						<button
-							id={styles.clearButton}
+							id={styles.startButton}
 							className={styles.button}
-							onClick={() => this.reset(true)}
+							onClick={() => {
+								this.reset(false);
+								this.runDijkstras();
+							}}
 						>
-							<h2>Clear</h2>
+							<h2>Start</h2>
 						</button>
-						<button
-							id={styles.clearButton}
-							className={styles.button}
-							onClick={() => this.reset(false)}
-						>
-							<h2>Reset</h2>
-						</button>
+						<div style={{height: "100%"}}>
+							<button
+								id={styles.clearButton}
+								className={styles.button}
+								onClick={() => this.reset(true)}
+							>
+								<h2>Clear</h2>
+							</button>
+							<button
+								id={styles.clearButton}
+								className={styles.button}
+								onClick={() => this.reset(false)}
+							>
+								<h2>Reset</h2>
+							</button>
+						</div>
 					</div>
-				</div>
 
-				<div className={styles.grid}>
-					{this.state.grid.map((row, i) => {
-						return (
-							<div key={i} className={styles["node-row"]}>
-								{this.state.grid[i].map((node, j) => {
-									return <Node key={j} node={node}></Node>;
-								})}
-							</div>
-						);
-					})}
+					<div className={styles.grid}>
+						{this.state.grid.map((row, i) => {
+							return (
+								<div key={i} className={styles["node-row"]}>
+									{this.state.grid[i].map((node, j) => {
+										return (
+											<Node key={j} node={node}></Node>
+										);
+									})}
+								</div>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		);
