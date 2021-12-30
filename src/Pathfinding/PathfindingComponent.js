@@ -2,11 +2,11 @@ import React, {Component} from "react";
 import Head from "next/head";
 import Node from "./Node/Node";
 import Button from "./Topbar/Button";
-import {END_LOCATION, createGrid, dijkstras, fastDijkstras, unvisited} from "./SortingAlgs";
+import {END_LOCATION, createGrid, dijkstras, fastDijkstras, unvisited} from "./PathfindingAlgs";
 
-import styles from "./Sorting.module.css";
+import styles from "./Pathfinding.module.css";
 
-export default class Sorting extends Component {
+export default class Pathfinding extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -68,7 +68,7 @@ export default class Sorting extends Component {
 
 			this.setState({grid: this.state.grid});
 			if (!this.current.isStart)
-				setTimeout(() => this.runDijkstras(), 50);
+				setTimeout(() => this.runDijkstras(), 25);
 			else this.foundPath = true;
 		}
 	}
@@ -85,7 +85,7 @@ export default class Sorting extends Component {
 				</Head>
 				<div className={styles.main}>
 					<div className={styles.topBar}>
-						<h1 style={{margin: 0}}>sorting</h1>
+						<h1 style={{margin: 0}}>pathfinding</h1>
 						<Button
 							styleId="start"
 							name="start"

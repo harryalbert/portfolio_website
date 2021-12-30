@@ -1,10 +1,10 @@
 import React from "react";
-import Sorting from '../Sorting/Sorting'
+import Pathfinding from '../Pathfinding/PathfindingComponent';
 
 const App = ()=> {
 	return (
 		<div className="app">
-			<Sorting></Sorting>
+			<Pathfinding></Pathfinding>
 		</div>
 	)
 };

@@ -1,9 +1,12 @@
-var START_LOCATION = [0, 0];
+var START_LOCATION;
 var END_LOCATION;
 
 var unvisited = new Set();
 function createGrid(rows, cols) {
-	END_LOCATION = [rows - 1, cols - 1];
+	let mid = Math.round((rows - 1) / 2);
+
+	START_LOCATION = [mid, Math.round(cols / 4)]
+	END_LOCATION = [mid, cols - 2];
 
 	const grid = [];
 
