@@ -85,29 +85,23 @@ export default class Sorting extends Component {
 				</Head>
 				<div className={styles.main}>
 					<div className={styles.topBar}>
-						<h1 style={{margin: 0}}>Sorting</h1>
+						<h1 style={{margin: 0}}>sorting</h1>
 						<Button
 							styleId="start"
 							onClick={() => {
 								this.reset(false);
 								this.runDijkstras();
 							}}
-						>
-							<h2>Start</h2>
-						</Button>
+						></Button>
 						<div style={{height: "100%"}}>
 							<Button
 								styleId="clear"
 								onClick={() => this.reset(true)}
-							>
-								<h2>Clear</h2>
-							</Button>
+							></Button>
 							<Button
 								styleId="clear"
 								onClick={() => this.reset(false)}
-							>
-								<h2>Reset</h2>
-							</Button>
+							></Button>
 						</div>
 					</div>
 
