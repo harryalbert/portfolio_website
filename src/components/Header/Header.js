@@ -5,10 +5,7 @@ import {DiCssdeck} from "react-icons/di";
 
 import {
 	Container,
-	Div1,
-	Div2,
 	Div3,
-	NavLink,
 	SocialIcons,
 	Span,
 } from "./HeaderStyles";
@@ -26,28 +23,6 @@ const Header = () => (
 				<DiCssdeck size="3rem" /> <Span>Harry Albert</Span>
 			</a>
 		</Link>
-		{/* <Div2>
-			<li>
-				<Link href="#projects">
-					<NavLink>Projects</NavLink>
-				</Link>
-			</li>
-			<li>
-				<Link href="#tech">
-					<NavLink>Technologies</NavLink>
-				</Link>
-			</li>
-			<li>
-				<Link href="#about">
-					<NavLink>About</NavLink>
-				</Link>
-			</li>
-			<li>
-				<Link href="#accomplishments">
-					<NavLink>Accomplishments</NavLink>
-				</Link>
-			</li>
-		</Div2> */}
 		<Div3>
 			<SocialIcons href="https://github.com/harryalbert/">
 				<AiFillGithub size="3rem" />

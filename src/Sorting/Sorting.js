@@ -1,4 +1,4 @@
-import React, {Component, Grid} from "react";
+import React, {Component} from "react";
 import Node from "./Node/Node";
 import {END_LOCATION, createGrid, dijkstras, unvisited} from "./SortingAlgs";
 
@@ -85,7 +85,7 @@ export default class Sorting extends Component {
 					>
 						<h2>Start</h2>
 					</button>
-					<div style={{height: '100%'}}>
+					<div style={{height: "100%"}}>
 						<button
 							id={styles.clearButton}
 							className={styles.button}
