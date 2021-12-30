@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Head from "next/head";
 import Node from "./Node/Node";
 import Button from "./Topbar/Button";
-import {END_LOCATION, createGrid, dijkstras, unvisited} from "./SortingAlgs";
+import {END_LOCATION, createGrid, dijkstras, fastDijkstras, unvisited} from "./SortingAlgs";
 
 import styles from "./Sorting.module.css";
 
@@ -18,8 +18,8 @@ export default class Sorting extends Component {
 	}
 
 	componentDidMount() {
-		let numRows = Math.round(window.innerWidth / 25) - 1;
-		let numCols = Math.round((window.innerHeight - 50) / 25) - 1;
+		let numRows = Math.round(window.innerWidth / 22) - 1;
+		let numCols = Math.round((window.innerHeight - 50) / 22) - 1;
 
 		this.setState({grid: createGrid(numCols, numRows)});
 	}
@@ -49,7 +49,7 @@ export default class Sorting extends Component {
 
 	runDijkstras() {
 		if (!this.reachedEnd) {
-			let done = dijkstras(this.state.grid);
+			let done = fastDijkstras(this.state.grid);
 			this.setState({grid: this.state.grid});
 			if (!done) setTimeout(() => this.runDijkstras(), 100);
 			else {
@@ -68,7 +68,7 @@ export default class Sorting extends Component {
 
 			this.setState({grid: this.state.grid});
 			if (!this.current.isStart)
-				setTimeout(() => this.runDijkstras(), 100);
+				setTimeout(() => this.runDijkstras(), 50);
 			else this.foundPath = true;
 		}
 	}
@@ -88,6 +88,7 @@ export default class Sorting extends Component {
 						<h1 style={{margin: 0}}>sorting</h1>
 						<Button
 							styleId="start"
+							name="start"
 							onClick={() => {
 								this.reset(false);
 								this.runDijkstras();
@@ -96,10 +97,12 @@ export default class Sorting extends Component {
 						<div style={{height: "100%"}}>
 							<Button
 								styleId="clear"
+								name="clear"
 								onClick={() => this.reset(true)}
 							></Button>
 							<Button
 								styleId="clear"
+								name="reset"
 								onClick={() => this.reset(false)}
 							></Button>
 						</div>

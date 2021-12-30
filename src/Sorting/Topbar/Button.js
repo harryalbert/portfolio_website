@@ -22,7 +22,7 @@ export default class Button extends Component {
 				className={styles.button}
 				onClick={this.props.onClick}
 			>
-				<h2>{this.props.styleId}</h2>
+				<h2>{this.props.name}</h2>
 			</button>
 		);
 	}

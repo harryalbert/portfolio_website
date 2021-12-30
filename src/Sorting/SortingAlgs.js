@@ -78,4 +78,48 @@ function dijkstras(grid) {
 	unvisited.delete(current);
 }
 
-export {END_LOCATION, createGrid, dijkstras, unvisited};
+function fastDijkstras(grid) {
+	let currents = [];
+
+	for (let node of unvisited) {
+		if (node.distance < Infinity) {
+			currents.push(node);
+		}
+	}
+
+	for (let current of currents){
+		if (current == null) return "no solution";
+		if (current.isFinish) return current;
+	
+		for (let i = -1; i <= 1; i += 2) {
+			let useX = true,
+				useY = true;
+	
+			let nY = current.y + i;
+			if (nY < 0 || nY >= grid.length) useY = false;
+	
+			let nX = current.x + i;
+			if (nX < 0 || nX >= grid[current.y].length) useX = false;
+	
+			let dests = [];
+			if (useX) dests.push([current.y, nX]);
+			if (useY) dests.push([nY, current.x]);
+	
+			for (let dest of dests) {
+				let node = grid[dest[0]][dest[1]];
+				if (node.isWall) continue;
+	
+				let newDist = 1 + current.distance;
+	
+				if (newDist < node.distance) {
+					node.parent = current;
+					node.distance = newDist;
+				}
+			}
+		}
+	
+		current.isVisited = true;
+		unvisited.delete(current);
+	}
+}
+export {END_LOCATION, createGrid, dijkstras, fastDijkstras, unvisited};
