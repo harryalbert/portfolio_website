@@ -78,4 +78,4 @@ function dijkstras(grid) {
 	unvisited.delete(current);
 }
 
-export {START_LOCATION, END_LOCATION, createGrid, dijkstras};
+export {END_LOCATION, createGrid, dijkstras, unvisited};

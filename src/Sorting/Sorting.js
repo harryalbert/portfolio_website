@@ -1,10 +1,8 @@
 import React, {Component, Grid} from "react";
 import Node from "./Node/Node";
-import {START_LOCATION, END_LOCATION, createGrid, dijkstras} from './SortingAlgs';
+import {END_LOCATION, createGrid, dijkstras, unvisited} from "./SortingAlgs";
 
 import styles from "./Sorting.module.css";
-
-
 
 export default class Sorting extends Component {
 	constructor(props) {
@@ -21,6 +19,29 @@ export default class Sorting extends Component {
 		let numRows = Math.round(window.innerWidth / 25) - 1;
 
 		this.setState({grid: createGrid(20, numRows)});
+	}
+
+	reset() {
+		unvisited.clear();
+
+		for (let i = 0; i < this.state.grid.length; i++) {
+			for (let j = 0; j < this.state.grid[0].length; j++) {
+				let node = this.state.grid[i][j];
+				node.isWall = false;
+				node.isVisited = false;
+				node.inPath = false;
+				node.parent = null;
+				node.distance = node.isStart ? 0 : Infinity;
+
+				unvisited.add(node);
+			}
+		}
+
+		this.reachedEnd = false;
+		this.foundPath = false;
+		this.current = null;
+
+		this.setState({grid: this.state.grid});
 	}
 
 	runDijkstras() {
@@ -52,6 +73,24 @@ export default class Sorting extends Component {
 	render() {
 		return (
 			<div className={styles.main}>
+				<div className={styles.topBar}>
+					<h1 style={{margin: 0}}>Sorting</h1>
+					<button
+						id={styles.startButton}
+						className={styles.button}
+						onClick={() => this.runDijkstras()}
+					>
+						<h2>Start</h2>
+					</button>
+					<button
+						id={styles.clearButton}
+						className={styles.button}
+						onClick={() => this.reset()}
+					>
+						<h2>Clear</h2>
+					</button>
+				</div>
+
 				<div className={styles.grid}>
 					{this.state.grid.map((row, i) => {
 						return (
@@ -63,8 +102,6 @@ export default class Sorting extends Component {
 						);
 					})}
 				</div>
-
-				<button onClick={() => this.runDijkstras()}>start</button>
 			</div>
 		);
 	}
