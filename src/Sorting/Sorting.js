@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Head from "next/head";
 import Node from "./Node/Node";
+import Button from "./Topbar/Button";
 import {END_LOCATION, createGrid, dijkstras, unvisited} from "./SortingAlgs";
 
 import styles from "./Sorting.module.css";
@@ -85,31 +86,28 @@ export default class Sorting extends Component {
 				<div className={styles.main}>
 					<div className={styles.topBar}>
 						<h1 style={{margin: 0}}>Sorting</h1>
-						<button
-							id={styles.startButton}
-							className={styles.button}
+						<Button
+							styleId="start"
 							onClick={() => {
 								this.reset(false);
 								this.runDijkstras();
 							}}
 						>
 							<h2>Start</h2>
-						</button>
+						</Button>
 						<div style={{height: "100%"}}>
-							<button
-								id={styles.clearButton}
-								className={styles.button}
+							<Button
+								styleId="clear"
 								onClick={() => this.reset(true)}
 							>
 								<h2>Clear</h2>
-							</button>
-							<button
-								id={styles.clearButton}
-								className={styles.button}
+							</Button>
+							<Button
+								styleId="clear"
 								onClick={() => this.reset(false)}
 							>
 								<h2>Reset</h2>
-							</button>
+							</Button>
 						</div>
 					</div>
 

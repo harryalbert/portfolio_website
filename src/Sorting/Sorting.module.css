@@ -12,34 +12,6 @@
 	background-color: rgb(0, 18, 66);
 }
 
-.button {
-	border: none;
-	border-radius: 5px;
-	margin: 5px 10px 0px 10px;
-	height: 100%;
-}
-
-.button:hover {
-	filter: brightness(85%);
-	cursor: pointer;
-}
-
-.button > h2 {
-	margin: 0px;
-	padding-left: 4px;
-	padding-right: 4px;
-}
-
-#startButton {
-	background-color: rgb(113, 237, 253);
-	color: black;
-}
-
-#clearButton {
-	background-color: rgb(255, 103, 97);
-	color: black;
-}
-
 .grid {
 	padding-top: 3px;
 }
