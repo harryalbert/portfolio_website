@@ -3,15 +3,16 @@ import React, {Component} from "react";
 import styles from "./Button.module.css";
 
 const styleAssociations = {
-	'start': styles.startButton,
-	'clear': styles.clearButton,
-}
+	start: styles.startButton,
+	clear: styles.clearButton,
+};
+
 export default class Button extends Component {
 	constructor(props) {
 		super(props);
 
 		this.style = styleAssociations[props.styleId];
-		if (this.style == null) this.style = styleAssociations['start'];
+		if (this.style == null) this.style = styleAssociations["start"];
 	}
 
 	render() {
