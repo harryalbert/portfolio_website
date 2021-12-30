@@ -1,0 +1,9 @@
+.grid {
+	background-color: #fff;
+	width: 100vw;
+	height: 100vh;
+}
+
+.node-row {
+	max-height: 25px;
+}
