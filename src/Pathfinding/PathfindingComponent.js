@@ -2,7 +2,13 @@ import React, {Component} from "react";
 import Head from "next/head";
 import Node from "./Node/Node";
 import Button from "./Topbar/Button";
-import {END_LOCATION, createGrid, dijkstras, fastDijkstras, unvisited} from "./PathfindingAlgs";
+import {
+	END_LOCATION,
+	createGrid,
+	dijkstras,
+	fastDijkstras,
+	unvisited,
+} from "./PathfindingAlgs";
 
 import styles from "./Pathfinding.module.css";
 
