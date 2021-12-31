@@ -5,7 +5,7 @@ var unvisited = new Set();
 function createGrid(rows, cols) {
 	let mid = Math.round((rows - 1) / 2);
 
-	START_LOCATION = [mid, Math.round(cols / 4)]
+	START_LOCATION = [mid, Math.round(cols / 4)];
 	END_LOCATION = [mid, cols - 2];
 
 	const grid = [];
@@ -36,14 +36,14 @@ function createGrid(rows, cols) {
 	return grid;
 }
 
-function getNeighbors(node){
+function getNeighbors(node, grid) {
 	let neighbors = [];
 	for (let i = -1; i <= 1; i += 2) {
-		let nY = current.y + i;
-		if (nY >= 0 && nY < grid.length) neighbors.push([nY, current.x]);
+		let nY = node.y + i;
+		if (nY >= 0 && nY < grid.length) neighbors.push([nY, node.x]);
 
-		let nX = current.x + i;
-		if (nX < 0 || nX >= grid[current.y].length) neighbors.push([current.y, nX]);
+		let nX = node.x + i;
+		if (nX >= 0 && nX < grid[node.y].length) neighbors.push([node.y, nX]);
 	}
 
 	return neighbors;
@@ -63,7 +63,7 @@ function dijkstras(grid) {
 	if (current == null) return "no solution";
 	if (current.isFinish) return current;
 
-	for (let dest of getNeighbors(current)) {
+	for (let dest of getNeighbors(current, grid)) {
 		let node = grid[dest[0]][dest[1]];
 		if (node.isWall) continue;
 
@@ -88,39 +88,25 @@ function fastDijkstras(grid) {
 		}
 	}
 
-	for (let current of currents){
+	for (let current of currents) {
 		if (current == null) return "no solution";
 		if (current.isFinish) return current;
-	
-		for (let i = -1; i <= 1; i += 2) {
-			let useX = true,
-				useY = true;
-	
-			let nY = current.y + i;
-			if (nY < 0 || nY >= grid.length) useY = false;
-	
-			let nX = current.x + i;
-			if (nX < 0 || nX >= grid[current.y].length) useX = false;
-	
-			let dests = [];
-			if (useX) dests.push([current.y, nX]);
-			if (useY) dests.push([nY, current.x]);
-	
-			for (let dest of dests) {
-				let node = grid[dest[0]][dest[1]];
-				if (node.isWall) continue;
-	
-				let newDist = 1 + current.distance;
-	
-				if (newDist < node.distance) {
-					node.parent = current;
-					node.distance = newDist;
-				}
+
+		for (let dest of getNeighbors(current, grid)) {
+			let node = grid[dest[0]][dest[1]];
+			if (node.isWall) continue;
+
+			let newDist = 1 + current.distance;
+
+			if (newDist < node.distance) {
+				node.parent = current;
+				node.distance = newDist;
 			}
 		}
-	
+
 		current.isVisited = true;
 		unvisited.delete(current);
 	}
 }
+
 export {END_LOCATION, createGrid, dijkstras, fastDijkstras, unvisited};
