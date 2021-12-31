@@ -5,6 +5,7 @@ import styles from "./Button.module.css";
 const styleAssociations = {
 	start: styles.startButton,
 	clear: styles.clearButton,
+	maze: styles.mazeButton,
 };
 
 export default class Button extends Component {

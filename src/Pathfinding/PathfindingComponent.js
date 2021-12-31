@@ -32,11 +32,12 @@ export default class Pathfinding extends Component {
 		for (let i = 0; i < this.state.grid.length; i++) {
 			for (let j = 0; j < this.state.grid[0].length; j++) {
 				let node = this.state.grid[i][j];
-				if (clearWalls) node.isWall = false;
+
 				node.isVisited = false;
 				node.inPath = false;
 				node.parent = null;
 				node.distance = node.isStart ? 0 : Infinity;
+				if (clearWalls) node.isWall = false;
 
 				this.algs.unvisited.add(node);
 			}
@@ -46,6 +47,11 @@ export default class Pathfinding extends Component {
 		this.foundPath = false;
 		this.current = null;
 
+		this.setState({grid: this.state.grid});
+	}
+
+	createMaze() {
+		this.algs.prims();
 		this.setState({grid: this.state.grid});
 	}
 
@@ -64,7 +70,9 @@ export default class Pathfinding extends Component {
 		} else if (!this.foundPath) {
 			if (!this.current)
 				this.current =
-					this.state.grid[this.algs.END_LOCATION[0]][this.algs.END_LOCATION[1]];
+					this.state.grid[this.algs.END_LOCATION[0]][
+						this.algs.END_LOCATION[1]
+					];
 			this.current.inPath = true;
 			this.current = this.current.parent;
 
@@ -94,6 +102,13 @@ export default class Pathfinding extends Component {
 							onClick={() => {
 								this.reset(false);
 								this.runDijkstras();
+							}}
+						></Button>
+						<Button
+							styleId="maze"
+							name="create maze"
+							onClick={() => {
+								this.createMaze();
 							}}
 						></Button>
 						<div style={{height: "100%"}}>

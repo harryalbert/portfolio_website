@@ -1,4 +1,4 @@
-class PathfindingAlgs {
+export default class PathfindingAlgs {
 	constructor() {
 		this.START_LOCATION = null;
 		this.END_LOCATION = null;
@@ -51,6 +51,14 @@ class PathfindingAlgs {
 		}
 	
 		return neighbors;
+	}
+
+	prims() {
+		for (let i = 0; i < this.grid.length; i++){
+			for (let j = 0; j < this.grid[i].length; j++) {
+				this.grid[i][j].isWall = true;
+			}
+		}
 	}
 
 	dijkstras(){
@@ -115,5 +123,3 @@ class PathfindingAlgs {
 		}
 	}
 }
-
-export default PathfindingAlgs;
