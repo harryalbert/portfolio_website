@@ -2,13 +2,7 @@ import React, {Component} from "react";
 import Head from "next/head";
 import Node from "./Node/Node";
 import Button from "./Topbar/Button";
-import {
-	END_LOCATION,
-	createGrid,
-	dijkstras,
-	fastDijkstras,
-	unvisited,
-} from "./PathfindingAlgs";
+import PathfindingAlgs from "./PathfindingAlgs";
 
 import styles from "./Pathfinding.module.css";
 
@@ -21,17 +15,19 @@ export default class Pathfinding extends Component {
 		this.reachedEnd = false;
 		this.foundPath = false;
 		this.current;
+
+		this.algs = new PathfindingAlgs();
 	}
 
 	componentDidMount() {
 		let numRows = Math.round(window.innerWidth / 22) - 1;
 		let numCols = Math.round((window.innerHeight - 50) / 22) - 1;
 
-		this.setState({grid: createGrid(numCols, numRows)});
+		this.setState({grid: this.algs.createGrid(numCols, numRows)});
 	}
 
 	reset(clearWalls) {
-		unvisited.clear();
+		this.algs.unvisited.clear();
 
 		for (let i = 0; i < this.state.grid.length; i++) {
 			for (let j = 0; j < this.state.grid[0].length; j++) {
@@ -42,7 +38,7 @@ export default class Pathfinding extends Component {
 				node.parent = null;
 				node.distance = node.isStart ? 0 : Infinity;
 
-				unvisited.add(node);
+				this.algs.unvisited.add(node);
 			}
 		}
 
@@ -55,7 +51,7 @@ export default class Pathfinding extends Component {
 
 	runDijkstras() {
 		if (!this.reachedEnd) {
-			let done = fastDijkstras(this.state.grid);
+			let done = this.algs.fastDijkstras();
 			this.setState({grid: this.state.grid});
 			if (!done) setTimeout(() => this.runDijkstras(), 100);
 			else {
@@ -68,7 +64,7 @@ export default class Pathfinding extends Component {
 		} else if (!this.foundPath) {
 			if (!this.current)
 				this.current =
-					this.state.grid[END_LOCATION[0]][END_LOCATION[1]];
+					this.state.grid[this.algs.END_LOCATION[0]][this.algs.END_LOCATION[1]];
 			this.current.inPath = true;
 			this.current = this.current.parent;
 
