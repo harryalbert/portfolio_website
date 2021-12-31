@@ -109,4 +109,12 @@ function fastDijkstras(grid) {
 	}
 }
 
-export {END_LOCATION, createGrid, dijkstras, fastDijkstras, unvisited};
+export {
+	START_LOCATION,
+	END_LOCATION,
+	createGrid,
+	dijkstras,
+	fastDijkstras,
+	unvisited,
+	getNeighbors,
+};
