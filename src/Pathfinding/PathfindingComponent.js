@@ -50,9 +50,17 @@ export default class Pathfinding extends Component {
 		this.setState({grid: this.state.grid});
 	}
 
-	createMaze() {
-		this.algs.prims();
+	createMaze(firstTime) {
+		if (firstTime) this.reset(true);
+
+		let done = 0;
+		while (done <= 0){
+			done = this.algs.prims(firstTime);
+		}
+
 		this.setState({grid: this.state.grid});
+
+		if (done < 2) setTimeout(() => this.createMaze(false), 1);
 	}
 
 	runDijkstras() {
@@ -108,7 +116,7 @@ export default class Pathfinding extends Component {
 							styleId="maze"
 							name="create maze"
 							onClick={() => {
-								this.createMaze();
+								this.createMaze(true);
 							}}
 						></Button>
 						<div style={{height: "100%"}}>
